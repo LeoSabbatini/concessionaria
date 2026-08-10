@@ -4,6 +4,7 @@ import com.concessionaria.model.Carro;
 import com.concessionaria.model.Cliente;
 import com.concessionaria.repository.CarroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,11 +24,22 @@ public class CarroController {
     public List<Carro> carrosAll(){
         return carroRepository.findAll();
     }
-
     @GetMapping("/{id}")
-    public List<Carro> carrosPorCliente(){
-        return carroRepository.findByCliente(null);
+    public Carro buscarPorId(@PathVariable Integer id) {
+        return carroRepository.findById(id).orElse(null);
     }
+    @PutMapping("/{id}")
+    public Carro atualizar(@PathVariable Integer id, @RequestBody Carro carroAtualizado) {
+        carroRepository.findById(id).orElse(null);
+        return carroRepository.save(carroAtualizado);
+    }
+    @DeleteMapping("/{id}")
+    public void remover(@PathVariable Integer id) {
+        carroRepository.findById(id)
+                .orElse(null);
+        carroRepository.deleteById(id);
+    }
+
 
 
 }

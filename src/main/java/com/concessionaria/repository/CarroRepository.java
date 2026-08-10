@@ -10,9 +10,5 @@ import java.util.List;
 
 public interface CarroRepository extends JpaRepository<Carro, Integer> {
 
-    @Query("""
-            SELECT new com.concessionaria.model.Carro
-            """)
-    List<Carro> carroPorCliente();
 }
 
