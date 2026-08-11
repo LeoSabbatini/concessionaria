@@ -18,9 +18,9 @@ public class Cliente {
     private String nome;
     @Column(unique = true, nullable = false)
     private String cpf;
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String telefone;
 
 }

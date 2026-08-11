@@ -41,8 +41,8 @@ public class Carro {
     @Column(nullable = false,unique = true)
     private String chassi;
 
-    @Column(nullable = true,unique = true)
-    private BigDecimal quilometragem;
+    @Column(nullable = true)
+    private Integer quilometragem;
 
     @Column(nullable = false)
     private Condicao condicao;

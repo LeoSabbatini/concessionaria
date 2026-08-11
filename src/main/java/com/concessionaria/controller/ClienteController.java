@@ -1,8 +1,6 @@
 package com.concessionaria.controller;
 
-import com.concessionaria.model.Carro;
 import com.concessionaria.model.Cliente;
-import com.concessionaria.repository.CarroRepository;
 import com.concessionaria.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +18,7 @@ public class ClienteController {
         return clienteRepository.save(cliente);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/lista")
     public List<Cliente> clientesAll(){
         return clienteRepository.findAll();
     }
