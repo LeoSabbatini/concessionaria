@@ -1,4 +1,7 @@
 package com.concessionaria.dto;
 
-public class CampoErroDTO {
+public record CampoErroDTO(
+        String campo,
+        String mensagem
+) {
 }

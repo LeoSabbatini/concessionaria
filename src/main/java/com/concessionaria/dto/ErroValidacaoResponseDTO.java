@@ -1,4 +1,9 @@
 package com.concessionaria.dto;
 
-public class ErroValidacaoResponseDTO {
+import java.util.List;
+
+public record ErroValidacaoResponseDTO(
+        int status,
+        List<CampoErroDTO> erros
+) {
 }

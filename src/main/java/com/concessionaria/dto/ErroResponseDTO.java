@@ -1,4 +1,7 @@
 package com.concessionaria.dto;
 
-public class ErroResponseDTO {
+public record ErroResponseDTO(
+        int status,
+        String mensagem
+) {
 }
