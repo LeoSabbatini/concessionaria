@@ -10,7 +10,10 @@ public class OpenApiConfig {
 
     @Bean
     public OpenAPI customOpenAPI(){
-        return new OpenAPI().info(new Info().title("Loja Analytics").version("1.0.0"));
+        return new OpenAPI().info(new Info()
+                .title("Concessionária API")
+                .description("API que gerencia o estoque de carros e o cadastro de clientes.")
+                .version("1.0.0"));
 
     }
 }
