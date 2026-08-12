@@ -2,6 +2,7 @@ package com.concessionaria.controller;
 
 import com.concessionaria.model.Carro;
 import com.concessionaria.repository.CarroRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +14,12 @@ public class CarroController {
     @Autowired
     private CarroRepository carroRepository;
 
-    @PostMapping("/cadastrar")
-    public Carro cadastrar(@RequestBody Carro carro){
+    @PostMapping
+    public Carro cadastrar(@Valid @RequestBody Carro carro){
         return carroRepository.save(carro);
     }
 
-    @GetMapping("/lista")
+    @GetMapping
     public List<Carro> carrosAll(){
         return carroRepository.findAll();
     }
