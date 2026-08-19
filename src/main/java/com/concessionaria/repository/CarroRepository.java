@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CarroRepository extends JpaRepository<Carro, Integer> {
 
@@ -17,10 +18,7 @@ public interface CarroRepository extends JpaRepository<Carro, Integer> {
 
     boolean existsByPlacaAndIdNot(String placa, Integer id);
 
-    /*@Query("""
-            SELECT c FROM Carro c
-            WHERE
-            """)
-    List<Carro> buscarComFiltro(@Param("cor") String cor);
-    */
+    List<Carro> findByCor(String cor);
+    List<Carro> findByAnoFabrica(Integer ano);
+
 }

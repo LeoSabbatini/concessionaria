@@ -2,6 +2,7 @@ package com.concessionaria.controller;
 
 import com.concessionaria.dto.CarroRequestDTO;
 import com.concessionaria.dto.CarroResponseDTO;
+import com.concessionaria.model.Carro;
 import com.concessionaria.service.CarroService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -31,12 +32,6 @@ public class CarroController {
     @PostMapping
     public CarroResponseDTO cadastrar(@Valid @RequestBody CarroRequestDTO carro) {
         return carroService.cadastrar(carro);
-    }
-
-    //fazer o filtro pela cor e anoFabrica la
-    @GetMapping
-    public List<CarroResponseDTO> carrosTodos() {
-        return carroService.listarTodos();
     }
 
     @Operation(summary = "Busca um carro pelo id")
@@ -69,5 +64,17 @@ public class CarroController {
     @DeleteMapping("/{id}")
     public void remover(@PathVariable Integer id) {
         carroService.remover(id);
+    }
+
+    @Operation(summary = "Lista os carros, podendo colocar filtro por cor e ano de fabricacao")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Carro encontrado com sucesso")
+    })
+    @GetMapping()
+    public List<Carro> listar(
+        @RequestParam(required = false) String cor,
+        @RequestParam(required = false) Integer ano
+    ){
+        return carroService.listar(cor, ano);
     }
 }

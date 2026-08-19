@@ -108,4 +108,16 @@ public class CarroService {
                 clienteResumo
         );
     }
+
+    public List<Carro> listar (String cor, Integer ano){
+        if(cor != null){
+            return carroRepository.findByCor(cor);
+        }
+        else if(ano !=null){
+            return  carroRepository.findByAnoFabrica(ano);
+        }
+        else{
+            return carroRepository.findAll();
+        }
+    }
 }
